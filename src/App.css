@@ -36,3 +36,205 @@
     transform: rotate(360deg);
   }
 }
+
+:root {
+  --color: #02feff;
+  --paleColor:  #02ffff4d;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+    overflow: hidden;
+    color:#555a5e;
+    width: 100%;
+    height: 100%;
+    color: #02feff;
+}
+
+defs svg {
+  overflow:auto;
+}
+
+.table {
+  color:var(--color);
+}
+
+#wrapper_input {
+  flex: 0 0 auto;
+/*   width: 33.33333333%;  
+ */}
+
+#wrapper_input .nav-link {
+  color: var(--color)
+}
+
+tr.selected_row {
+    background-color: #777777;
+}
+
+*.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+ }
+
+.cutted {
+  mix-blend-mode: color-burn;
+}
+.current_brick {
+/*   mix-blend-mode: overlay;
+ */  filter: brightness(125%) drop-shadow(4px 4px 4px black) ;
+}
+
+.current_brick.collision,
+.current_brick.canvasCollision
+ {
+  filter: brightness(125%) drop-shadow(4px 4px 4px rgb(255, 255, 255));
+}
+
+.canvasCollision,
+.collision {
+  filter: brightness(125%) drop-shadow(4px 4px 4px rgb(255, 255, 255));
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+  0% {
+      filter: brightness(100%);
+  }
+}
+ @keyframes mymove {
+  50% {
+   filter: brightness(150%);
+  }
+}
+
+@-webkit-keyframes collision {
+    0% {
+        mix-blend-mode: normal;
+    }
+}
+
+/* Стандартный синтаксис */
+@keyframes collision {
+    50% {
+        mix-blend-mode: difference;
+    }
+}
+
+#editor_main_wrapper {
+  height: 90%;
+}
+
+#wrapper_svg {
+  overflow: hidden;
+  border: 0.2px solid var(--paleColor);
+  border-top: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%!important;
+  box-shadow: -1px -4px 20px 5px rgb(2 255 255 / 30%);
+}
+
+#wrapper_part_list {
+    overflow: hidden;
+    width: 20%;
+    height: 20%;
+}
+
+/* #wrapper_net {
+    position: absolute;
+    height: 801px;
+    width: 1522px;
+    overflow: hidden;
+    
+} */
+
+#group {
+    cursor: grab;
+}
+
+.grabbing {
+    cursor: grab !important;
+}
+
+.arrow {
+    cursor: crosshair !important;
+}
+
+.rcut {
+  cursor: cell !important;
+}
+/* 
+.custom_minus {
+  cursor: url('/img/cursor_minus.cur'), auto !important;
+}
+
+.custom_plus{
+  //cursor: url('/img/cursor_plus.cur'), auto !important;
+} */
+
+/* 
+#group use:active {
+    cursor: grabbing !important;
+}
+*/
+.hidden,
+.hiddenNotDeleted {
+    display: none !important;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+}
+
+.containerTable {
+    height: 900px;
+    overflow-x:hidden;
+    overflow-y:auto ;
+}
+
+.btn_active_mode {
+    background-color: var(--color)!important;
+}
+
+.counter {
+    display: none !important;
+}
+
+.counter_input {
+    width: 45px;
+    border: #0000008c solid 1px;
+    border-radius: 3px;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 400;
+    vertical-align: middle;
+    color: #0000008c;
+    margin: 7px;
+}
+
+.counter_button {
+    color: white;
+    font-size: 1rem;
+    font-weight: 800;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    border: none;
+    margin: 2px;
+    box-shadow: inset 0 2px 3px rgb(114 116 119 / 60%), 0 8px 20px rgb(0 0 0 / 90%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(157 157 157)), color-stop(100%, rgb(51 51 51)));
+}
