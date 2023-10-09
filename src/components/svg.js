@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const SvgComponent = (matrix) => {
-	// Используйте состояние для хранения данных о позиции элемента
+	const wrapperRef = useRef(null);
 	const [position, setPosition] = useState({ x: 0, y: 0 });
 
 	// Обработчик события для перемещения элемента
@@ -20,7 +20,8 @@ const SvgComponent = (matrix) => {
 	<svg xmlns="http://www.w3.org/2000/svg" baseProfile="full" id="svg" viewBox="0.00 0.00 206.00 184.00" style={{ overflow: 'visible' }} version="1.1">
 		<g id="group2" transform-origin="center" transform="rotate(-90)">
 			<g id="group1" transform="translate(0 0)">
-				<g id="group" transform={`matrix(${matrix.matrix.a||1} ${matrix.matrix.b||0} ${matrix.matrix.c||0} ${matrix.matrix.d||1} ${matrix.matrix.e||0} ${matrix.matrix.f||0})`}>
+				
+				<g id="group" ref={wrapperRef}  transform={`matrix(${matrix.matrix.a||1} ${matrix.matrix.b||0} ${matrix.matrix.c||0} ${matrix.matrix.d||1} ${matrix.matrix.e||0} ${matrix.matrix.f||0})`}>
 					<defs>
 						<svg className="grid">
 							<pattern id="xsGrid" width="1" height="1" fill="#333333" patternUnits="userSpaceOnUse">
