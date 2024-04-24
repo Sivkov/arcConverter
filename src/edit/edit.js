@@ -21,7 +21,7 @@
     startDrag = (evt) => {
         if (evt.target) {
             this.offset = this.getMousePosition(evt);
-            this.transforms =this.brick.transform.baseVal.consolidate().matrix
+            this.transforms = document.querySelector('#group1').transform.baseVal.consolidate().matrix
             this.offset.x -= this.transforms.e;
             this.offset.y -= this.transforms.f;
         }
@@ -45,8 +45,8 @@
     var CTM = this.svg.getScreenCTM();
         let coord
         return    coord = {
-            y: (evt.clientX + CTM.e) / CTM.a,
-            x: -(evt.clientY - CTM.f) / CTM.d
+            x: (evt.clientX + CTM.f)/ CTM.a,
+            y: (evt.clientY + CTM.e)/ CTM.d
         }; 
     }
 }
