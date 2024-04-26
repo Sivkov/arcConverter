@@ -8,6 +8,7 @@ import Edit from './../edit/edit';
 const SvgWrapper = () => {
 	const [matrix, setMatrix] = useState({ a: 1, b: 0, c: 0, d: 1, e: 0, f: 0 });
 	const [gmatrix, setGroupMatrix] = useState({ a: 1, b: 0, c: 0, d: 1, e: 0, f: 0 });
+	const [offset, setOffset] = useState({ x: 0, y: 0 });
 	const svg = document.querySelector('svg')
 
 	const handleMouseWheel = (event) => {
@@ -32,15 +33,41 @@ const SvgWrapper = () => {
 		});
 	};
 
-	const startDrag =(e) =>{}
-	const endDrag =(e) =>{}
-	const drag =(e) =>{}
+	const startDrag = (e) =>{
+		if (e.target && e.buttons === 4) {            
+			let off = getMousePosition(e);
+			let transforms = document.getElementById("group1").transform.baseVal.consolidate().matrix
+            off.x -= transforms.e;
+            off.y -= transforms.f;
+			setOffset({x:off.x,y:off.y})			 
+        }
+	}
 
+	const endDrag =(e) =>{}
+
+	const drag =(e) =>{
+		console.log (e.buttons)
+		if (e.target && e.buttons === 4){
+			var coord = getMousePosition(e);
+ 			gmatrix.e = (coord.x - offset.x)
+			gmatrix.f = (coord.y - offset.y)
+ 
+			setGroupMatrix({
+				a: gmatrix.a,
+				b: gmatrix.b,
+				c: gmatrix.c,
+				d: gmatrix.d,
+				e: gmatrix.e,
+				f: gmatrix.f,
+			})
+		}
+	}
 
     const getMousePosition = (evt) => {
+		var svg = document.getElementById("svg")
     	let CTM = svg.getScreenCTM();
-        let coord
-        return    coord = {
+        
+        return   {
             x: (evt.clientX + CTM.f)/ CTM.a,
             y: (evt.clientY + CTM.e)/ CTM.d
         }; 
@@ -52,10 +79,10 @@ const SvgWrapper = () => {
 				<div id="wrapper_svg" className="container-fluid" 
 				onWheel={handleMouseWheel} 
 				onMouseDown={startDrag}
-				onMouseMove={drag}
+				onMouseMove={drag} 
  				onMouseUp={endDrag}
 				onMouseLeave={endDrag}>		 
-					<SvgComponent matrix={matrix} />
+					<SvgComponent matrix={matrix} gmatrix={gmatrix} />
 				</div>
 			</div>
 		</main>

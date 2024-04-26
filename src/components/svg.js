@@ -2,10 +2,10 @@ import React, { useState, useRef } from 'react';
 import { ReactSVG } from 'react-svg'
 
 
-const SvgComponent = ({matrix}) => {
+const SvgComponent = ({matrix, gmatrix}) => {
 	const wrapperRef = useRef(null);
-	const gMatrix = matrix.a + ' '+ matrix.b + ' '+matrix.c + ' '+matrix.d + ' '+matrix.e + ' '+matrix.f 
-
+	const matrixM = matrix.a + ' '+ matrix.b + ' '+matrix.c + ' '+matrix.d + ' '+matrix.e + ' '+matrix.f 
+	const matrixG = gmatrix.a + ' '+ gmatrix.b + ' '+gmatrix.c + ' '+gmatrix.d + ' '+gmatrix.e + ' '+gmatrix.f 
 	return (
 
  		<svg
@@ -31,8 +31,8 @@ const SvgComponent = ({matrix}) => {
 			</svg>
 			</defs>
 			<g id="group2">
-				<g id="group1">
-					<g id="group" transform={`matrix(${gMatrix})`} className="grab">
+				<g id="group1" transform={`matrix(${matrixG})`} >
+					<g id="group" transform={`matrix(${matrixM})`} className="grab">
 					<g id="contours">
 						<rect id="dimensionalGrid" height="100" width="100" x="0" y="0" fill="url(#grid)"  stroke="white" strokeWidth="0.5"></rect>
 					</g>
