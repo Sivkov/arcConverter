@@ -16,8 +16,8 @@ function App() {
     <SvgWrapper />
     <Watches />
     {/*<Preloader />*/}
-    {/*<Panels />*/}
-    </div>
+    {/*   <Panels /> */}    
+</div>
   );
 }
 
