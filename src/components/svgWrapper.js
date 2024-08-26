@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import SvgComponent from './svg';
+import RightPanel from './rigthPanel.js';
 import Util from './../utils/util';
 import Edit from './../edit/edit';
+import Panel from './../edit/edit';
 
 
 
@@ -83,6 +85,7 @@ const SvgWrapper = () => {
  				onMouseUp={endDrag}
 				onMouseLeave={endDrag}>		 
 					<SvgComponent matrix={matrix} gmatrix={gmatrix} />
+					<RightPanel />
 				</div>
 			</div>
 		</main>

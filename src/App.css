@@ -54,6 +54,10 @@ tr.selected_row {
     background-color: #777777;
 }
 
+#svg {
+  fill:url(#grid);
+}
+
 *.unselectable {
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -112,13 +116,15 @@ tr.selected_row {
 
 #wrapper_svg {
   overflow: hidden;
-  border: 0.2px solid var(--paleColor);
-  border-top: none;
+  
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%!important;
-  box-shadow: -1px -4px 20px 5px rgb(2 255 255 / 30%);
+  padding: 30px 25px 25px 11px ;
+  /*width: 100%!important;
+  border: 0.2px solid var(--paleColor);
+  border-top: none;
+  box-shadow: -1px -4px 20px 5px rgb(2 255 255 / 30%);*/
 }
 
 #wrapper_part_list {
@@ -1286,7 +1292,19 @@ ul {
 
 #watches {
   position: absolute;
-  top: 20px;
+  bottom: 20px;
+  right: 20px;
   filter: contrast(0);
+}
 
+
+#ellepsis {
+  fill: none;
+  stroke-width: 0.5px;
+  stroke: white;
+}
+#arcs {
+fill: none;
+stroke-width: 0.2px;
+stroke: red;
 }
