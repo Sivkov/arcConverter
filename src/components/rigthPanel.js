@@ -31,7 +31,7 @@ function RightPanel({ setRadiusX, setRadiusY, radiusX, radiusY }) {
 				/>
 			</div> 
 			<div className='rightPanelItem'> 
-				<label htmlFor="radiusY">Radius Y</label>
+				<label htmlFor="segments">Segments</label>
 				<input
 					className=""
 					type="number"
@@ -40,7 +40,12 @@ function RightPanel({ setRadiusX, setRadiusY, radiusX, radiusY }) {
 					style={{ marginLeft: '0' }}
 					value={14}
 				/>
-			</div> 
+			</div>
+			<div className='rightPanelItem'>
+				<button className='btn btn-lg button btn-primary'>Check</button>
+			</div>
+			
+
 		</div>
 	);
 }

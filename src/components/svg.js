@@ -1,4 +1,6 @@
 import React, { useRef } from 'react';
+import Arc from './../utils/arc.js';
+
 
 const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
     const wrapperRef = useRef(null);
@@ -40,6 +42,7 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
     const { x, y, width, height } = calculateRectAttributes();
     const ellepsisPath = (r1, r2) => `M${widthSVG*0.5-r1} ${heightSVG*0.5} A${r1} ${r2} 0 0 0 ${widthSVG*0.5+r1} ${heightSVG*0.5} A ${r1} ${r2} 0 0 0 ${widthSVG*0.5-r1} ${heightSVG*0.5}`
     const ell = ellepsisPath(radiusX, radiusY)
+    const circleArcs = Arc.converting ('M20 45 A30 20 0 0 0 80 45')
 
     return (
         <svg
@@ -80,7 +83,7 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
                                 strokeWidth="0"
                             ></rect>
                             <path id="ellepsis" d={ell}></path>
-                            <path id="arcs" d={ell}></path>
+                            <path id="arcs" d={circleArcs}></path>
                         </g>
                     </g>
                 </g>

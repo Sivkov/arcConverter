@@ -1,4 +1,20 @@
 class Util {
+    static radian(ux, uy, vx, vy) {
+      var dot = ux * vx + uy * vy;
+      var mod = Math.sqrt((ux * ux + uy * uy) * (vx * vx + vy * vy));
+      var rad = Math.acos(dot / mod);
+      if (ux * vy - uy * vx < 0.0) {
+        rad = -rad;
+      }
+      return rad;
+    }
+
+
+	static distance(point1, point2) {
+		const dx = point1.x - point2.x;
+		const dy = point1.y - point2.y;
+		return Math.sqrt(dx * dx + dy * dy);
+	}
     // Utility method 1
     static multiplyMatrices(matrixA, matrixB) {
 
