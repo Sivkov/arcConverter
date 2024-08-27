@@ -48,7 +48,7 @@ const SvgComponent = ({ matrix, gmatrix }) => {
             style={{ overflow: 'hidden', border: '1px solid white' }}
             version="1.1"
             stroke="white"
-            strokeWidth="0.5"
+            strokeWidth="0.2"
         >
             <defs>
                 <pattern id="xsGrid" width="1" height="1" fill="white" patternUnits="userSpaceOnUse">

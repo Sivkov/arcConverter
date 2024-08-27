@@ -1,48 +1,49 @@
 import React, { useEffect, useState } from 'react';
 
 function RightPanel() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+	// Corrected handler functions
+	const radiusXHandler = (e) => console.log(e.currentTarget.value);
+	const radiusYHandler = (e) => console.log(e.currentTarget.value);
+	const segmentsHandler = (e) => console.log(e.currentTarget.value);
 
-  useEffect(() => {
-    // Check the current theme in localStorage
-    const theme = localStorage.getItem('theme');
-	setTheme( theme );
-    if (theme === 'theme_dark') {
-      setIsDarkMode(true);
-    } else {
-		setIsDarkMode(false);
-	}
-  }, []); // Empty dependency array to run this code once
-
-  const toggleTheme = () => {
-    if (isDarkMode) {
-      setTheme('theme_light');
-    } else {
-      setTheme('theme_dark');
-    }
-    setIsDarkMode(!isDarkMode);
-  };
-
-  const setTheme = (themeName = 'theme_dark') => {
-	if (!themeName) themeName = 'theme_dark';
-    localStorage.setItem('theme', themeName);
-    document.documentElement.className = themeName;
-  };
-
-  return (
-    <div className="form-check form-switch themeSwitcher" style={{ marginRight: '60px' }}>
-      <label className="form-check-label" style={{ marginRight: '55px' }}>Свет</label>
-      <input
-        className="form-check-input"
-        type="checkbox"
-        id="themeSwitcher"
-        onChange={toggleTheme}
-        style={{ marginLeft: '38px' }}
-        checked={isDarkMode}
-      />
-      <label className="form-check-label">Тьма</label>
-    </div>
-  );
+	return (
+		<div className="form-check" 
+			style={{ marginRight: '60px', display:'flex', flexDirection:'column' }}>
+			<div className='rightPanelItem'>
+				<label htmlFor="radiusX">Radius X</label>
+				<input
+					className=""
+					type="number"
+					id="radiusX"
+					onChange={radiusXHandler}
+					style={{ marginLeft: '0' }}
+					value={30}
+				/>
+			</div>
+			<div className='rightPanelItem'>
+				<label htmlFor="radiusY">Radius Y</label>
+				<input
+					className=""
+					type="number"
+					id="radiusY"
+					onChange={radiusYHandler}
+					style={{ marginLeft: '0' }}
+					value={20}
+				/>
+			</div> 
+			<div className='rightPanelItem'> 
+				<label htmlFor="radiusY">Radius Y</label>
+				<input
+					className=""
+					type="number"
+					id="segments"
+					onChange={segmentsHandler}
+					style={{ marginLeft: '0' }}
+					value={14}
+				/>
+			</div> 
+		</div>
+	);
 }
 
 export default RightPanel;
