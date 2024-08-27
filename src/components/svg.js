@@ -1,12 +1,11 @@
 import React, { useRef } from 'react';
 
-const SvgComponent = ({ matrix, gmatrix }) => {
+const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
     const wrapperRef = useRef(null);
     const matrixM = `${matrix.a} ${matrix.b} ${matrix.c} ${matrix.d} ${matrix.e} ${matrix.f}`;
     const matrixG = `${gmatrix.a} ${gmatrix.b} ${gmatrix.c} ${gmatrix.d} ${gmatrix.e} ${gmatrix.f}`;
 	const widthSVG = 100
 	const heightSVG = 90
-
     // Функция для умножения двух 3x3 матриц
     const multiplyMatrices = (m1, m2) => {
         return {
@@ -39,28 +38,30 @@ const SvgComponent = ({ matrix, gmatrix }) => {
     };
 
     const { x, y, width, height } = calculateRectAttributes();
+    const ellepsisPath = (r1, r2) => `M${widthSVG*0.5-r1} ${heightSVG*0.5} A${r1} ${r2} 0 0 0 ${widthSVG*0.5+r1} ${heightSVG*0.5} A ${r1} ${r2} 0 0 0 ${widthSVG*0.5-r1} ${heightSVG*0.5}`
+    const ell = ellepsisPath(radiusX, radiusY)
 
     return (
         <svg
             id="svg"
             baseProfile="full"
             viewBox={`0.00 0.00 ${widthSVG} ${heightSVG}`}
-            style={{ overflow: 'hidden', border: '1px solid white' }}
+            style={{ overflow: 'hidden', border: '1px solid var(--color)' }}
             version="1.1"
-            stroke="white"
+            stroke='var(--color)'
             strokeWidth="0.2"
         >
             <defs>
                 <pattern id="xsGrid" width="1" height="1" fill="white" patternUnits="userSpaceOnUse">
-                    <path d="M 0 0 1 0 1 1 0 1 0 0" fill="none" stroke="white" strokeWidth="0.05"></path>
+                    <path d="M 0 0 1 0 1 1 0 1 0 0" fill="none" stroke='var(--color)' strokeWidth="0.05"></path>
                 </pattern>
                 <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
                     <rect width="100" height="100" fill="url(#xsGrid)"></rect>
-                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.2"></path>
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke='var(--color)' strokeWidth="0.2"></path>
                 </pattern>
                 <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
                     <rect width="100" height="100" fill="url(#smallGrid)"></rect>
-                    <path d="M 100 0 L 0 0 0 100" fill="none" stroke="white" strokeWidth="0.7"></path>
+                    <path d="M 100 0 L 0 0 0 100" fill="none" stroke='var(--color)' strokeWidth="0.7"></path>
                 </pattern>
             </defs>
             <g id="group2" fill="url(#grid)">
@@ -75,11 +76,11 @@ const SvgComponent = ({ matrix, gmatrix }) => {
                                 y={y}
                                 fill="url(#grid)"
                                 transform-origin="50% 50%"
-                                stroke="white"
+                                stroke='var(--color)'
                                 strokeWidth="0"
                             ></rect>
-                            <path id="ellepsis" d="M 20 50 A 30 20 0 0 0 80 50 A 30 20 0 0 0 20 50"></path>
-                            <path id="arcs" d="M 20 50 A 30 20 0 0 0 80 50 A 30 20 0 0 0 20 50"></path>
+                            <path id="ellepsis" d={ell}></path>
+                            <path id="arcs" d={ell}></path>
                         </g>
                     </g>
                 </g>

@@ -127,7 +127,7 @@ tr.selected_row {
   box-shadow: -1px -4px 20px 5px rgb(2 255 255 / 30%);*/
 }
 
-#wrapper_svg > div >div {
+.rightPanelItem {
   margin-top: 30px;
 }
 
@@ -137,13 +137,6 @@ tr.selected_row {
     height: 20%;
 }
 
-/* #wrapper_net {
-    position: absolute;
-    height: 801px;
-    width: 1522px;
-    overflow: hidden;
-    
-} */
 
 #group {
     cursor: grab;
@@ -165,20 +158,7 @@ tr.selected_row {
 .rcut {
   cursor: cell !important;
 }
-/* 
-.custom_minus {
-  cursor: url('/img/cursor_minus.cur'), auto !important;
-}
 
-.custom_plus{
-  //cursor: url('/img/cursor_plus.cur'), auto !important;
-} */
-
-/* 
-#group use:active {
-    cursor: grabbing !important;
-}
-*/
 .hidden,
 .hiddenNotDeleted {
     display: none !important;
@@ -1311,4 +1291,11 @@ ul {
 fill: none;
 stroke-width: 0.2px;
 stroke: red;
+}
+
+#navBar{
+  background-color: var(--bgMain1);
+    border-bottom: 1px solid var(--paleColor);
+    flex-flow: row;
+    justify-content: flex-end;
 }

@@ -8,7 +8,7 @@ const Navbar = () => {
 	const panels = {}
 	
   return (
-    <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: 'var(--bgMain1)', borderBottom: '1px solid var(--paleColor)' }}>
+    <nav className="navbar" id="navBar">
 			<ThemeSwitcher />
     </nav>
   );

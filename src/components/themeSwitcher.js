@@ -30,17 +30,17 @@ function ThemeSwitcher() {
   };
 
   return (
-    <div className="form-check form-switch themeSwitcher" style={{ marginRight: '60px' }}>
-      <label className="form-check-label" style={{ marginRight: '55px' }}>Свет</label>
+    <div className="form-check form-switch themeSwitcher d-flex align-items-center mx-4" style={{}}>
+      <label htmlFor="themeSwitcher" className="form-check-label" style={{ marginRight: '0px' }}>Тьма</label>
       <input
         className="form-check-input"
         type="checkbox"
         id="themeSwitcher"
         onChange={toggleTheme}
-        style={{ marginLeft: '38px' }}
+        style={{ marginLeft: '6px' }}
         checked={isDarkMode}
       />
-      <label className="form-check-label">Тьма</label>
+      <label htmlFor="themeSwitcher" className="form-check-label" style={{ marginRight: '0px' }}>Свет</label>
     </div>
   );
 }

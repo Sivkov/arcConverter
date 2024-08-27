@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-function RightPanel() {
-	// Corrected handler functions
-	const radiusXHandler = (e) => console.log(e.currentTarget.value);
-	const radiusYHandler = (e) => console.log(e.currentTarget.value);
+function RightPanel({ setRadiusX, setRadiusY, radiusX, radiusY }) {
 	const segmentsHandler = (e) => console.log(e.currentTarget.value);
+	const radiusXHandler = (e) => setRadiusX(Number(e.currentTarget.value));
+	const radiusYHandler = (e) => setRadiusY(Number(e.currentTarget.value));
 
 	return (
 		<div className="form-check" 
@@ -17,7 +16,7 @@ function RightPanel() {
 					id="radiusX"
 					onChange={radiusXHandler}
 					style={{ marginLeft: '0' }}
-					value={30}
+					value={radiusX}
 				/>
 			</div>
 			<div className='rightPanelItem'>
@@ -28,7 +27,7 @@ function RightPanel() {
 					id="radiusY"
 					onChange={radiusYHandler}
 					style={{ marginLeft: '0' }}
-					value={20}
+					value={radiusY}
 				/>
 			</div> 
 			<div className='rightPanelItem'> 
