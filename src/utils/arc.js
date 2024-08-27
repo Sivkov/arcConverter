@@ -449,6 +449,7 @@ class Arc {
     static  converting (path) {
         let pathArc = SVGPathCommander.normalizePath(path)
         let rx, ry, x1, y1, x2, y2, flag1, flag2, flag3 ;
+        let arc =''
         if (pathArc.length) {
             pathArc.forEach((seg, i) => {
                 if (seg.includes('A')) {
@@ -464,16 +465,19 @@ class Arc {
                         ry = seg[1]
                         flag1 = 0
                     }
+                    let res = this.svgArcToCenterParam(x1, y1, rx, ry, flag1, flag2, flag3, x2, y2)
+                    arc += this.arcConvert(rx, ry, res.cx, res.cy, res.clockwise, res.startAngle, res.endAngle, res.deltaAngle) 
+                    x1 = x2
+                    y1 = y2
+
                 }
                 if (seg.includes('M')) {
                     x1 = seg[1]
                     y1 = seg[2]
-                    pathArc[i] = `M${x1} ${y1}`
+                    arc += `M${x1} ${y1}`
                 }
             })
         }
-        let res = this.svgArcToCenterParam(x1, y1, rx, ry, flag1, flag2, flag3, x2, y2)
-        let arc = this.arcConvert(rx, ry, res.cx, res.cy, res.clockwise, res.startAngle, res.endAngle, res.deltaAngle) 
         return arc
         // return  without M this.cutStringAtFirstA(arc)
     }

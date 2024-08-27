@@ -42,7 +42,7 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
     const { x, y, width, height } = calculateRectAttributes();
     const ellepsisPath = (r1, r2) => `M${widthSVG*0.5-r1} ${heightSVG*0.5} A${r1} ${r2} 0 0 0 ${widthSVG*0.5+r1} ${heightSVG*0.5} A ${r1} ${r2} 0 0 0 ${widthSVG*0.5-r1} ${heightSVG*0.5}`
     const ell = ellepsisPath(radiusX, radiusY)
-    const circleArcs = Arc.converting ('M20 45 A30 20 0 0 0 80 45')
+    const circleArcs = Arc.converting (ell)
 
     return (
         <svg
@@ -66,6 +66,9 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
                     <rect width="100" height="100" fill="url(#smallGrid)"></rect>
                     <path d="M 100 0 L 0 0 0 100" fill="none" stroke='var(--color)' strokeWidth="0.7"></path>
                 </pattern>
+                <marker id="dotRed" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5">
+                    <circle cx="5" cy="5" r="5" fill="red"></circle>
+                </marker>
             </defs>
             <g id="group2" fill="url(#grid)">
                 <g id="group1" transform={`matrix(${matrixG})`}>
@@ -83,7 +86,7 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
                                 strokeWidth="0"
                             ></rect>
                             <path id="ellepsis" d={ell}></path>
-                            <path id="arcs" d={circleArcs}></path>
+                            <path markerEnd="url(#dotRed)" markerMid="url(#dotRed)" markerStart="url(#dotRed)"id="arcs" d={circleArcs}></path>
                         </g>
                     </g>
                 </g>
