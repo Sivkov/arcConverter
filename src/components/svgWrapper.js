@@ -15,6 +15,8 @@ const SvgWrapper = () => {
 
 	const [radiusX, setRadiusX] = useState(30);
 	const [radiusY, setRadiusY] = useState(20);
+	const [segments, setSegments] = useState(14);
+
 
 	const handleMouseWheel = (event) => {
 		var svg = document.getElementById("svg")
@@ -51,7 +53,7 @@ const SvgWrapper = () => {
 	const endDrag =(e) =>{}
 
 	const drag =(e) =>{
-		console.log (e.buttons)
+		//console.log (e.buttons)
 		if (e.target && e.buttons === 4){
 			var coord = getMousePosition(e);
  			gmatrix.e = (coord.x - offset.x)
@@ -87,8 +89,20 @@ const SvgWrapper = () => {
 				onMouseMove={drag} 
  				onMouseUp={endDrag}
 				onMouseLeave={endDrag}>		 
-					<SvgComponent matrix={matrix} gmatrix={gmatrix} radiusX={radiusX} radiusY={radiusY} />
-					<RightPanel setRadiusX={setRadiusX} setRadiusY={setRadiusY} radiusX={radiusX} radiusY={radiusY}/>
+					<SvgComponent 
+						matrix={matrix} 
+						gmatrix={gmatrix} 
+						radiusX={radiusX} 
+						radiusY={radiusY} 
+						segments={segments}
+						/>
+					<RightPanel 
+						setRadiusX={setRadiusX} 
+						setRadiusY={setRadiusY}
+						setSegments={setSegments} 
+						/* radiusX={radiusX} 
+						radiusY={radiusY} */
+						/>
 				</div>
 			</div>
 		</main>

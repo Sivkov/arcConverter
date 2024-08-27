@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-function RightPanel({ setRadiusX, setRadiusY, radiusX, radiusY }) {
-	const segmentsHandler = (e) => console.log(e.currentTarget.value);
+function RightPanel({ setRadiusX, setRadiusY, setSegments }) {
+	const segmentsHandler = (e) => setSegments(Number(e.currentTarget.value))
 	const radiusXHandler = (e) => setRadiusX(Number(e.currentTarget.value));
 	const radiusYHandler = (e) => setRadiusY(Number(e.currentTarget.value));
 
@@ -16,7 +16,7 @@ function RightPanel({ setRadiusX, setRadiusY, radiusX, radiusY }) {
 					id="radiusX"
 					onChange={radiusXHandler}
 					style={{ marginLeft: '0' }}
-					value={radiusX}
+					placeholder={50}
 				/>
 			</div>
 			<div className='rightPanelItem'>
@@ -27,7 +27,7 @@ function RightPanel({ setRadiusX, setRadiusY, radiusX, radiusY }) {
 					id="radiusY"
 					onChange={radiusYHandler}
 					style={{ marginLeft: '0' }}
-					value={radiusY}
+					placeholder={20}
 				/>
 			</div> 
 			<div className='rightPanelItem'> 
@@ -38,7 +38,8 @@ function RightPanel({ setRadiusX, setRadiusY, radiusX, radiusY }) {
 					id="segments"
 					onChange={segmentsHandler}
 					style={{ marginLeft: '0' }}
-					value={14}
+					placeholder={14}
+					min={4}
 				/>
 			</div>
 			<div className='rightPanelItem'>

@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import Arc from './../utils/arc.js';
 
 
-const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
+const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY, segments }) => {
     const wrapperRef = useRef(null);
     const matrixM = `${matrix.a} ${matrix.b} ${matrix.c} ${matrix.d} ${matrix.e} ${matrix.f}`;
     const matrixG = `${gmatrix.a} ${gmatrix.b} ${gmatrix.c} ${gmatrix.d} ${gmatrix.e} ${gmatrix.f}`;
@@ -40,9 +40,16 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
     };
 
     const { x, y, width, height } = calculateRectAttributes();
-    const ellepsisPath = (r1, r2) => `M${widthSVG*0.5-r1} ${heightSVG*0.5} A${r1} ${r2} 0 0 0 ${widthSVG*0.5+r1} ${heightSVG*0.5} A ${r1} ${r2} 0 0 0 ${widthSVG*0.5-r1} ${heightSVG*0.5}`
+    const ellepsisPath = function (r1, r2) {
+        if (r1  && r2){
+            return `M${widthSVG*0.5-r1} ${heightSVG*0.5} A${r1} ${r2} 0 0 0 ${widthSVG*0.5+r1} ${heightSVG*0.5} A ${r1} ${r2} 0 0 0 ${widthSVG*0.5-r1} ${heightSVG*0.5}`
+        } else {
+            return document.querySelector('#ellepsis').getAttribute('d')
+        }
+
+    }
     const ell = ellepsisPath(radiusX, radiusY)
-    const circleArcs = Arc.converting (ell)
+    const circleArcs = Arc.converting (ell, segments)
 
     return (
         <svg
@@ -85,8 +92,17 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY }) => {
                                 stroke='var(--color)'
                                 strokeWidth="0"
                             ></rect>
-                            <path id="ellepsis" d={ell}></path>
-                            <path markerEnd="url(#dotRed)" markerMid="url(#dotRed)" markerStart="url(#dotRed)"id="arcs" d={circleArcs}></path>
+                            <path 
+                                id="ellepsis" 
+                                d={ell}
+                            ></path>
+                            <path 
+                                markerEnd="url(#dotRed)" 
+                                markerMid="url(#dotRed)" 
+                                markerStart="url(#dotRed)"
+                                id="arcs" 
+                                d={circleArcs}
+                            ></path>
                         </g>
                     </g>
                 </g>

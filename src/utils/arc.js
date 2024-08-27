@@ -413,9 +413,9 @@ class Arc {
         return R;
     }
 
-    static  arcConvert(a, b, cx, cy, clockwise = false, startAngle=0, endAngle=2*Math.PI, deltaAngle=2*Math.PI) {
-        let segments = 24//48
-        if (a < 100 && b < 100 ) segments = 12//24;
+    static  arcConvert(a, b, cx, cy, clockwise = false, startAngle=0, endAngle=2*Math.PI, deltaAngle=2*Math.PI, segments=14) {
+        //let segments = 14
+        //if (a < 100 && b < 100 ) segments = 12//24;
         let ellepsis = this.approximateEllipse(a, b, cx, cy, segments, clockwise, startAngle, endAngle, deltaAngle)
         const pathData = this.generateNewArc( ellepsis )
         return pathData;
@@ -446,7 +446,7 @@ class Arc {
         }
     }
 
-    static  converting (path) {
+    static  converting (path, segments) {
         let pathArc = SVGPathCommander.normalizePath(path)
         let rx, ry, x1, y1, x2, y2, flag1, flag2, flag3 ;
         let arc =''
@@ -466,7 +466,7 @@ class Arc {
                         flag1 = 0
                     }
                     let res = this.svgArcToCenterParam(x1, y1, rx, ry, flag1, flag2, flag3, x2, y2)
-                    arc += this.arcConvert(rx, ry, res.cx, res.cy, res.clockwise, res.startAngle, res.endAngle, res.deltaAngle) 
+                    arc += this.arcConvert(rx, ry, res.cx, res.cy, res.clockwise, res.startAngle, res.endAngle, res.deltaAngle, segments) 
                     x1 = x2
                     y1 = y2
 
