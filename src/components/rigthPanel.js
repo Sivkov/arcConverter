@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RightPanel({ setRadiusX, setRadiusY, setSegments, ell, arcs }) {
+function RightPanel({ setRadiusX, setRadiusY, setSegments, ell, arcs, deviation }) {
 	const segmentsHandler = (e) => setSegments(Number(e.currentTarget.value))
 	const radiusXHandler = (e) => setRadiusX(Number(e.currentTarget.value));
 	const radiusYHandler = (e) => setRadiusY(Number(e.currentTarget.value));
@@ -41,11 +41,9 @@ function RightPanel({ setRadiusX, setRadiusY, setSegments, ell, arcs }) {
 					min={4}
 				/>
 			</div>
+			
 			<div className='rightPanelItem'>
-				<button className='btn btn-lg button btn-primary'>Check</button>
-			</div>
-			<div className='rightPanelItem'>
-				<div id='error'></div>		
+				<div id='error'><p className={ deviation.maxDeviation > 0.05 ? 'text-danger' :''}>Max deviation: {Math.round(deviation.maxDeviation*10000)/10000} mm</p></div>		
  			</div>	
 			<div className='rightPanelItem rightPanel__pathWrapper rightPanel__pathWrapper_min' >
 				<div id='ell'>{ell}</div>		

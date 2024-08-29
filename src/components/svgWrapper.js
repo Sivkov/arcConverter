@@ -3,18 +3,18 @@ import SvgComponent from './svg';
 import RightPanel from './rigthPanel.js';
 import Util from './../utils/util';
 import Arc from './../utils/arc.js';
+import Intro from './intro.js';
 
 
 const SvgWrapper = () => {
 	const [matrix, setMatrix] = useState({ a: 1, b: 0, c: 0, d: 1, e: 0, f: 0 });
 	const [gmatrix, setGroupMatrix] = useState({ a: 1, b: 0, c: 0, d: 1, e: 0, f: 0 });
-	const [offset, setOffset] = useState({ x: 0, y: 0 });
-	//const svg = document.querySelector('svg')
+	const [offset, setOffset] = useState({});
 
+	const [deviation, setDeviation] = useState({deviation:0,maxDeviationPoint:{x:0,y:0}});
 	const [radiusX, setRadiusX] = useState(30);
 	const [radiusY, setRadiusY] = useState(20);
 	const [segments, setSegments] = useState(14);
-
 	const [ell, setEllipse] = useState('M0 0');
     const [arcs, setArcs] = useState('M0 0');
 
@@ -35,6 +35,8 @@ const SvgWrapper = () => {
         setEllipse(calculatedEllipse);
         const calculatedArcs = Arc.converting(calculatedEllipse, segments); 
         setArcs(calculatedArcs);
+		const calculatedDeviation = Arc.findMaxDeviationPoint(calculatedEllipse, calculatedArcs, 1000 )
+		setDeviation(calculatedDeviation)
     }, [radiusX, radiusY, segments]); 
 
 	const handleMouseWheel = (event) => {
@@ -102,6 +104,7 @@ const SvgWrapper = () => {
 	return (
 		<main className="container-fluid h-100">
 			<div  id="wrapper_svg" className="w-100 h-100">
+				<div><Intro /></div>
 				<div id="wrapper_svg_svg"
 				onWheel={handleMouseWheel} 
 				onMouseDown={startDrag}
@@ -113,6 +116,7 @@ const SvgWrapper = () => {
 						gmatrix={gmatrix} 
 						ell={ell}
 						arcs={arcs}
+						deviation={deviation}
 						/>
 				</div>
 				<div>
@@ -122,6 +126,7 @@ const SvgWrapper = () => {
 						setSegments={setSegments} 
 						ell={ell} 
 						arcs={arcs} 
+						deviation={deviation}
 						/>
 				</div>
 			</div>

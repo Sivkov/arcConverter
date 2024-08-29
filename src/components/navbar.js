@@ -9,6 +9,11 @@ const Navbar = () => {
 	
   return (
     <nav className="navbar" id="navBar">
+      <div className="mx-4 d-flex flex-column">
+        <div className='navbar__regular_note'>Elliptical to circular arc converter</div>
+        <div className='navbar__small_note'>with counting deviation and showing deviation point</div>
+
+      </div>
 			<ThemeSwitcher />
     </nav>
   );

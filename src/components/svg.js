@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 
-const SvgComponent = ({ matrix, gmatrix, ell, arcs }) => {
+const SvgComponent = ({ matrix, gmatrix, ell, arcs, deviation }) => {
     const wrapperRef = useRef(null);
     const matrixM = `${matrix.a} ${matrix.b} ${matrix.c} ${matrix.d} ${matrix.e} ${matrix.f}`;
     const matrixG = `${gmatrix.a} ${gmatrix.b} ${gmatrix.c} ${gmatrix.d} ${gmatrix.e} ${gmatrix.f}`;
@@ -36,17 +36,6 @@ const SvgComponent = ({ matrix, gmatrix, ell, arcs }) => {
         return { x, y, width, height };
     };
     const { x, y, width, height } = calculateRectAttributes();
-
-   /* 
-
-    //const deviationPoint = Arc.findMaxDeviationPoint(ell, circleArcs, 1000 )
-    //const [deviationPoint, setDeviation] = useState({ x: 0, y:0});
-    /*
-    const ss = (p1, p2) => { 
-        let res = Arc.findMaxDeviationPoint(ell, circleArcs, 1000 )
-        setDeviation( {x:res.maxDeviationPoint.x,y: res.maxDeviationPoint.y})
-    } */   
-
 
     return (
         <svg
@@ -100,11 +89,12 @@ const SvgComponent = ({ matrix, gmatrix, ell, arcs }) => {
                                 id="arcs" 
                                 d={arcs}
                             ></path>
-                              {/* <circle 
-                                cx={ deviationPoint.maxDeviationPoint.x} 
-                                cy={ deviationPoint.maxDeviationPoint.y} 
+                               <circle 
+                                cx={ deviation.maxDeviationPoint.x} 
+                                cy={ deviation.maxDeviationPoint.y} 
                                 r="1"
-                                fill='green'/> */}
+                                stroke='qreen'
+                                strokeWidth={1}/>
                         </g>
                     </g>
                 </g>

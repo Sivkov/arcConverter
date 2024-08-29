@@ -1302,7 +1302,7 @@ stroke: red;
   background-color: var(--bgMain1);
   /* border-bottom: 1px solid var(--paleColor); */
   flex-flow: row;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .rightPanel__pathWrapper {
@@ -1311,6 +1311,8 @@ stroke: red;
   border: 1px solid var(--paleColor);
   height: 400px;
   overflow-y: auto;
+  font-size: 14px;
+
 }
 
 .rightPanel__pathWrapper_min {
@@ -1318,11 +1320,33 @@ stroke: red;
 }
 
 .rightPanel__formCheck {
-  margin-right: 60px;
   display:   flex;
   justify-content: space-between;
   flex-direction: column;
   min-height: 1.5rem;
   padding-left: 1.5em;
   margin-bottom: 0.125rem;
+}
+
+.navbar__small_note{
+  font-size: 12px;
+}
+
+.navbar__regular_note{
+  font-size: 24px;
+}
+
+#ell, #arcs {
+  font-size: 14px;
+}
+
+#introText {
+  font-size: 18px;
+  width: 200px;
+
+}
+
+.rightPanelItem label {
+  margin-right: 10px;
+  FONT-SIZE: 18PX;
 }
