@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-function RightPanel({ setRadiusX, setRadiusY, setSegments }) {
+function RightPanel({ setRadiusX, setRadiusY, setSegments, ell, arcs }) {
 	const segmentsHandler = (e) => setSegments(Number(e.currentTarget.value))
 	const radiusXHandler = (e) => setRadiusX(Number(e.currentTarget.value));
 	const radiusYHandler = (e) => setRadiusY(Number(e.currentTarget.value));
 	
 	return (
-		<div className="form-check" 
-			style={{ marginRight: '60px', display:'flex', flexDirection:'column' }}>
+		<div className="rightPanel__formCheck">
 			<div className='rightPanelItem'>
 				<label htmlFor="radiusX">Radius X</label>
 				<input
@@ -48,11 +47,11 @@ function RightPanel({ setRadiusX, setRadiusY, setSegments }) {
 			<div className='rightPanelItem'>
 				<div id='error'></div>		
  			</div>	
-			<div className='rightPanelItem'>
-				<div id='convertdArcs'></div>		
+			<div className='rightPanelItem rightPanel__pathWrapper rightPanel__pathWrapper_min' >
+				<div id='ell'>{ell}</div>		
  			</div>
-			 <div className='rightPanelItem'>
-				<div id='oldArcs'></div>		
+			 <div className='rightPanelItem rightPanel__pathWrapper'>
+				<div id='arcs'>{arcs}</div>		
  			</div>			
 		</div>
 	);

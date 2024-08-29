@@ -476,7 +476,7 @@ class Arc {
                 if (seg.includes('M')) {
                     x1 = seg[1]
                     y1 = seg[2]
-                    arc += `M${x1} ${y1}`
+                    //arc += `M${x1} ${y1}`
                 }
             })
         }

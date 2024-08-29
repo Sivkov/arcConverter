@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SvgComponent from './svg';
 import RightPanel from './rigthPanel.js';
 import Util from './../utils/util';
-//import Edit from './../edit/edit';
-//import Panel from './../edit/edit';
-
+import Arc from './../utils/arc.js';
 
 
 const SvgWrapper = () => {
@@ -17,6 +15,27 @@ const SvgWrapper = () => {
 	const [radiusY, setRadiusY] = useState(20);
 	const [segments, setSegments] = useState(14);
 
+	const [ell, setEllipse] = useState('M0 0');
+    const [arcs, setArcs] = useState('M0 0');
+
+    const ellepsisPath = (r1, r2) => {
+        const widthSVG = 100;
+        const heightSVG = 60;
+
+        if (r1 && r2) {
+            return `M${widthSVG * 0.5 - r1} ${heightSVG * 0.5} A${r1} ${r2} 0 0 0 ${widthSVG * 0.5 + r1} ${heightSVG * 0.5} A ${r1} ${r2} 0 0 0 ${widthSVG * 0.5 - r1} ${heightSVG * 0.5}`;
+        } else {
+            const pathElement = document.querySelector('#ellepsis');
+            return pathElement ? pathElement.getAttribute('d') : 'M0 0';
+        }
+    };
+
+    useEffect(() => {
+        const calculatedEllipse = ellepsisPath(radiusX, radiusY);
+        setEllipse(calculatedEllipse);
+        const calculatedArcs = Arc.converting(calculatedEllipse, segments); 
+        setArcs(calculatedArcs);
+    }, [radiusX, radiusY, segments]); 
 
 	const handleMouseWheel = (event) => {
 		var svg = document.getElementById("svg")
@@ -82,8 +101,8 @@ const SvgWrapper = () => {
 
 	return (
 		<main className="container-fluid h-100">
-			<div className="w-100 h-100">
-				<div id="wrapper_svg" className="container-fluid" 
+			<div  id="wrapper_svg" className="w-100 h-100">
+				<div id="wrapper_svg_svg"
 				onWheel={handleMouseWheel} 
 				onMouseDown={startDrag}
 				onMouseMove={drag} 
@@ -92,16 +111,17 @@ const SvgWrapper = () => {
 					<SvgComponent 
 						matrix={matrix} 
 						gmatrix={gmatrix} 
-						radiusX={radiusX} 
-						radiusY={radiusY} 
-						segments={segments}
+						ell={ell}
+						arcs={arcs}
 						/>
+				</div>
+				<div>
 					<RightPanel 
 						setRadiusX={setRadiusX} 
 						setRadiusY={setRadiusY}
 						setSegments={setSegments} 
-						/* radiusX={radiusX} 
-						radiusY={radiusY} */
+						ell={ell} 
+						arcs={arcs} 
 						/>
 				</div>
 			</div>

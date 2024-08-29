@@ -127,6 +127,11 @@ tr.selected_row {
   box-shadow: -1px -4px 20px 5px rgb(2 255 255 / 30%);*/
 }
 
+
+#wrapper_svg_svg {
+  width:80%;
+}
+
 .rightPanelItem {
   margin-top: 30px;
 }
@@ -1298,4 +1303,26 @@ stroke: red;
   /* border-bottom: 1px solid var(--paleColor); */
   flex-flow: row;
   justify-content: flex-end;
+}
+
+.rightPanel__pathWrapper {
+  word-break: auto-phrase;
+  width: 500px;
+  border: 1px solid var(--paleColor);
+  height: 400px;
+  overflow-y: auto;
+}
+
+.rightPanel__pathWrapper_min {
+  height: 100px;
+}
+
+.rightPanel__formCheck {
+  margin-right: 60px;
+  display:   flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 1.5rem;
+  padding-left: 1.5em;
+  margin-bottom: 0.125rem;
 }

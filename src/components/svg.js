@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react';
-import Arc from './../utils/arc.js';
 
 
-const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY, segments }) => {
+const SvgComponent = ({ matrix, gmatrix, ell, arcs }) => {
     const wrapperRef = useRef(null);
     const matrixM = `${matrix.a} ${matrix.b} ${matrix.c} ${matrix.d} ${matrix.e} ${matrix.f}`;
     const matrixG = `${gmatrix.a} ${gmatrix.b} ${gmatrix.c} ${gmatrix.d} ${gmatrix.e} ${gmatrix.f}`;
@@ -36,22 +35,11 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY, segments }) => {
 
         return { x, y, width, height };
     };
-
     const { x, y, width, height } = calculateRectAttributes();
-    const ellepsisPath = function (r1, r2) {
-        if (r1  && r2){
-            return `M${widthSVG*0.5-r1} ${heightSVG*0.5} A${r1} ${r2} 0 0 0 ${widthSVG*0.5+r1} ${heightSVG*0.5} A ${r1} ${r2} 0 0 0 ${widthSVG*0.5-r1} ${heightSVG*0.5}`
-        } else {
-            return document.querySelector('#ellepsis').getAttribute('d')
-        }
 
-    }
+   /* 
 
-    const ell = ellepsisPath(radiusX, radiusY)
-    const circleArcs = Arc.converting (ell, segments)
     //const deviationPoint = Arc.findMaxDeviationPoint(ell, circleArcs, 1000 )
-
-
     //const [deviationPoint, setDeviation] = useState({ x: 0, y:0});
     /*
     const ss = (p1, p2) => { 
@@ -110,7 +98,7 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY, segments }) => {
                                 markerMid="url(#dotRed)" 
                                 markerStart="url(#dotRed)"
                                 id="arcs" 
-                                d={circleArcs}
+                                d={arcs}
                             ></path>
                               {/* <circle 
                                 cx={ deviationPoint.maxDeviationPoint.x} 
