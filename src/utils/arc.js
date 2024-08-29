@@ -4,6 +4,9 @@ import Util from "./util";
 class Arc {
 
     static findMaxDeviationPoint(pathData1, pathData2, numSamples = 1000) {
+        
+        console.log("ssss")
+        //return false
         const svgNS = "http://www.w3.org/2000/svg";
         const svg = document.getElementById("svg");
         const path1 = document.createElementNS(svgNS, "path");
@@ -12,8 +15,8 @@ class Arc {
         path1.setAttribute("d", pathData1);
         path2.setAttribute("d", pathData2);
 
-        svg.appendChild(path1);
-        svg.appendChild(path2);
+        //svg.appendChild(path1);
+        //svg.appendChild(path2);
 
         const totalLength1 = path1.getTotalLength();
         const totalLength2 = path2.getTotalLength();
@@ -42,7 +45,6 @@ class Arc {
         // Clean up the temporary SVG elements
         path2.remove();
         path1.remove();
-        console.log(maxDeviation)
 
         return {
             maxDeviation,

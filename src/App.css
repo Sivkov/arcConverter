@@ -119,8 +119,8 @@ tr.selected_row {
   
   display: flex;
   justify-content: center;
-  padding: 30px 25px 25px 11px ;
-  /*width: 100%!important;
+  /*padding: 30px 25px 25px 11px ;
+  width: 100%!important;
   align-items: center;
   border: 0.2px solid var(--paleColor);
   border-top: none;
@@ -1295,7 +1295,7 @@ stroke: red;
 
 #navBar{
   background-color: var(--bgMain1);
-    border-bottom: 1px solid var(--paleColor);
-    flex-flow: row;
-    justify-content: flex-end;
+  /* border-bottom: 1px solid var(--paleColor); */
+  flex-flow: row;
+  justify-content: flex-end;
 }

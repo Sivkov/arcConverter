@@ -4,7 +4,7 @@ function RightPanel({ setRadiusX, setRadiusY, setSegments }) {
 	const segmentsHandler = (e) => setSegments(Number(e.currentTarget.value))
 	const radiusXHandler = (e) => setRadiusX(Number(e.currentTarget.value));
 	const radiusYHandler = (e) => setRadiusY(Number(e.currentTarget.value));
-
+	
 	return (
 		<div className="form-check" 
 			style={{ marginRight: '60px', display:'flex', flexDirection:'column' }}>
@@ -16,7 +16,7 @@ function RightPanel({ setRadiusX, setRadiusY, setSegments }) {
 					id="radiusX"
 					onChange={radiusXHandler}
 					style={{ marginLeft: '0' }}
-					placeholder={50}
+					placeholder={30}
 				/>
 			</div>
 			<div className='rightPanelItem'>
@@ -45,8 +45,15 @@ function RightPanel({ setRadiusX, setRadiusY, setSegments }) {
 			<div className='rightPanelItem'>
 				<button className='btn btn-lg button btn-primary'>Check</button>
 			</div>
-			
-
+			<div className='rightPanelItem'>
+				<div id='error'></div>		
+ 			</div>	
+			<div className='rightPanelItem'>
+				<div id='convertdArcs'></div>		
+ 			</div>
+			 <div className='rightPanelItem'>
+				<div id='oldArcs'></div>		
+ 			</div>			
 		</div>
 	);
 }

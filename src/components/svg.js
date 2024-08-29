@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Arc from './../utils/arc.js';
 
 
@@ -7,8 +7,7 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY, segments }) => {
     const matrixM = `${matrix.a} ${matrix.b} ${matrix.c} ${matrix.d} ${matrix.e} ${matrix.f}`;
     const matrixG = `${gmatrix.a} ${gmatrix.b} ${gmatrix.c} ${gmatrix.d} ${gmatrix.e} ${gmatrix.f}`;
 	const widthSVG = 100
-	const heightSVG = 90
-    // Функция для умножения двух 3x3 матриц
+	const heightSVG = 60
     const multiplyMatrices = (m1, m2) => {
         return {
             a: m1.a * m2.a + m1.c * m2.b,
@@ -20,10 +19,9 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY, segments }) => {
         };
     };
 
-    // Вычисление комбинированной матрицы
     const combinedMatrix = multiplyMatrices(gmatrix, matrix);
 
-    // Функции для вычисления значений для rect
+
     const calculateRectAttributes = () => {
         // Ширина и высота исходя из scale
         const scaleX = combinedMatrix.a;
@@ -48,8 +46,19 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY, segments }) => {
         }
 
     }
+
     const ell = ellepsisPath(radiusX, radiusY)
     const circleArcs = Arc.converting (ell, segments)
+    //const deviationPoint = Arc.findMaxDeviationPoint(ell, circleArcs, 1000 )
+
+
+    //const [deviationPoint, setDeviation] = useState({ x: 0, y:0});
+    /*
+    const ss = (p1, p2) => { 
+        let res = Arc.findMaxDeviationPoint(ell, circleArcs, 1000 )
+        setDeviation( {x:res.maxDeviationPoint.x,y: res.maxDeviationPoint.y})
+    } */   
+
 
     return (
         <svg
@@ -103,6 +112,11 @@ const SvgComponent = ({ matrix, gmatrix, radiusX, radiusY, segments }) => {
                                 id="arcs" 
                                 d={circleArcs}
                             ></path>
+                              {/* <circle 
+                                cx={ deviationPoint.maxDeviationPoint.x} 
+                                cy={ deviationPoint.maxDeviationPoint.y} 
+                                r="1"
+                                fill='green'/> */}
                         </g>
                     </g>
                 </g>

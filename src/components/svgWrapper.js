@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import SvgComponent from './svg';
 import RightPanel from './rigthPanel.js';
 import Util from './../utils/util';
-import Edit from './../edit/edit';
-import Panel from './../edit/edit';
+//import Edit from './../edit/edit';
+//import Panel from './../edit/edit';
 
 
 
@@ -11,7 +11,7 @@ const SvgWrapper = () => {
 	const [matrix, setMatrix] = useState({ a: 1, b: 0, c: 0, d: 1, e: 0, f: 0 });
 	const [gmatrix, setGroupMatrix] = useState({ a: 1, b: 0, c: 0, d: 1, e: 0, f: 0 });
 	const [offset, setOffset] = useState({ x: 0, y: 0 });
-	const svg = document.querySelector('svg')
+	//const svg = document.querySelector('svg')
 
 	const [radiusX, setRadiusX] = useState(30);
 	const [radiusY, setRadiusY] = useState(20);
