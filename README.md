@@ -14,8 +14,6 @@
 
 ### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Or leave it empty and use the [https://sivkov.online/arcconverter/].
-
-[Try it live](https://www.google.com)
+[Try it live](https://sivkov.online/arcconverter/)
 
 ![Screenshot](https://github.com/Sivkov/arcConverter/blob/main/src/img/arcview.png?raw=true)
