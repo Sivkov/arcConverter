@@ -62,7 +62,7 @@ const SvgWrapper = () => {
 	};
 
 	const startDrag = (e) =>{
-		if (e.target && e.buttons === 4) {            
+		if (e.target && (e.buttons === 4 || e.buttons === 1)) {            
 			let off = getMousePosition(e);
 			let transforms = document.getElementById("group1").transform.baseVal.consolidate().matrix
             off.x -= transforms.e;
@@ -75,7 +75,7 @@ const SvgWrapper = () => {
 
 	const drag =(e) =>{
 		//console.log (e.buttons)
-		if (e.target && e.buttons === 4){
+		if (e.target && (e.buttons === 4 || e.buttons === 1)){
 			var coord = getMousePosition(e);
  			gmatrix.e = (coord.x - offset.x)
 			gmatrix.f = (coord.y - offset.y)

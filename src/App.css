@@ -1281,9 +1281,11 @@ ul {
 
 #watches {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  filter: contrast(0);
+  bottom: 14px;
+  right: -20px;
+  /* filter: contrast(0); */
+  display: flex;
+  align-items: center;
 }
 
 
@@ -1341,7 +1343,7 @@ stroke: red;
 }
 
 #introText {
-  font-size: 18px;
+  font-size: 16px;
   width: 200px;
 
 }
@@ -1349,4 +1351,25 @@ stroke: red;
 .rightPanelItem label {
   margin-right: 10px;
   FONT-SIZE: 18PX;
+}
+
+.github-button {
+  display: inline-block;
+  background-color: #24292e;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.github-button:hover {
+  background-color: #444d56;
+}
+
+.github-icon {
+  vertical-align: middle;
+  margin-right: 8px;
 }
