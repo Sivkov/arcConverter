@@ -104,7 +104,7 @@ const SvgWrapper = () => {
 	return (
 		<main className="container-fluid h-100">
 			<div  id="wrapper_svg" className="w-100 h-100">
-				<div><Intro /></div>
+				<div id='intro'><Intro /></div>
 				<div id="wrapper_svg_svg"
 				onWheel={handleMouseWheel} 
 				onMouseDown={startDrag}

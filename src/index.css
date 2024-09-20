@@ -11,3 +11,210 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@media (min-width: 1025px) and (max-width: 1980px) {
+
+  body {
+    background-color: red !important;
+  }
+
+  #wrapper_svg_svg {
+    width:80%;
+    min-width: 50%;
+  } 
+
+  .rightPanelItem {
+    margin-top: 30px;
+  }
+
+  .rightPanel__pathWrapper {
+    height: 400px;
+  }
+  
+  .rightPanel__pathWrapper_min {
+    height: 100px;
+  }
+
+  .navbar__small_note{
+    font-size: 12px;
+  }
+  
+  .navbar__regular_note{
+    font-size: 24px;
+  }
+  
+  #ell, #arcs {
+    font-size: 14px;
+  }
+  
+  #introText {
+    font-size: 16px;
+    width: 200px;
+  }
+
+  .github-button {
+    display: inline-block;
+    background-color: #24292e;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+   }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  body {
+    background-color: orange !important;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  body {
+    background-color: brown !important;
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+
+  body {
+    background-color: rgb(16, 91, 27) !important
+  }
+
+  .github_button {
+    padding: 0;
+    background-color: none;
+  }
+
+  #wrapper_svg {
+    flex-direction: column;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    overflow: initial;    
+  }
+
+  #intro {
+    transform: translateX(-100%);
+    position: fixed
+  }
+
+  #wrapper_svg_svg {
+    width: calc(100% - 10px);
+    flex-direction: column;
+    display: flex;
+  }
+
+  .rightPanel__formCheck {
+    min-height: 25px;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .rightPanelItem, 
+  .rightPanel__pathWrapper, 
+  .rightPanel__pathWrapper_min {
+    width: calc(100% - 10px);
+    margin-top: 5px;
+    min-height: 25px;
+
+  }
+
+  .navbar__small_note {
+    font-size: 8px;
+  }
+
+  .navbar__regular_note {
+    font-size: 10px;
+  }
+
+  #github {
+    display: none;
+  }
+
+  .navbar__small_note{
+    font-size: 8px;
+  }
+  
+  .navbar__regular_note{
+    font-size: 12px;
+  }
+  
+  #ell, #arcs {
+    font-size: 14px;
+  }
+  
+  #introText {
+    font-size: 10px;
+    width: 200px;
+  }
+
+/*   #watches {
+    display: none!important;
+  } */
+
+  #arcs {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+  }
+
+
+}
+
+
+/* @media (min-width: 100px) and (max-width: 319px) {
+  body {
+    background-color: rgb(61, 43, 46) !important;
+  }
+
+  #wrapper_svg {
+    flex-direction: column;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    overflow: initial;    
+  }
+
+  #intro {
+    transform: translateX(-100%);
+    position: fixed
+  }
+
+  #wrapper_svg_svg {
+    width: calc(100% - 10px);
+    flex-direction: column;
+    display: flex;
+  }
+
+  .rightPanel__formCheck {
+    min-height: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .rightPanelItem, 
+  .rightPanel__pathWrapper, 
+  .rightPanel__pathWrapper_min {
+    width: calc(100% - 10px);
+    margin-top: 5px;
+  }
+
+  .navbar__small_note {
+    font-size: 8px;
+  }
+
+  .navbar__regular_note {
+    font-size: 15px;
+  }
+
+} */

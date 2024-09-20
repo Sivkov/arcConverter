@@ -128,13 +128,12 @@ tr.selected_row {
 }
 
 
-#wrapper_svg_svg {
+/* #wrapper_svg_svg {
   width:80%;
-}
+  min-width: 50%;
+} */
 
-.rightPanelItem {
-  margin-top: 30px;
-}
+
 
 #wrapper_part_list {
     overflow: hidden;
@@ -1269,7 +1268,7 @@ ul {
  box-shadow: none;
 }
 /* DRAGGABLE WINDOWS popup */
-
+ 
 .nav-link {
   margin: 0.5rem;
 }
@@ -1309,18 +1308,16 @@ stroke: red;
 
 .rightPanel__pathWrapper {
   word-break: auto-phrase;
-  width: 500px;
-  border: 1px solid var(--paleColor);
-  height: 400px;
-  overflow-y: auto;
+   border: 1px solid var(--paleColor);
+/*   height: 400px;
+ */  overflow-y: auto;
   font-size: 14px;
-
 }
 
-.rightPanel__pathWrapper_min {
+/* .rightPanel__pathWrapper_min {
   height: 100px;
 }
-
+ */
 .rightPanel__formCheck {
   display:   flex;
   justify-content: space-between;
@@ -1330,34 +1327,14 @@ stroke: red;
   margin-bottom: 0.125rem;
 }
 
-.navbar__small_note{
-  font-size: 12px;
-}
-
-.navbar__regular_note{
-  font-size: 24px;
-}
-
-#ell, #arcs {
-  font-size: 14px;
-}
-
-#introText {
-  font-size: 16px;
-  width: 200px;
-
-}
-
 .rightPanelItem label {
   margin-right: 10px;
-  FONT-SIZE: 18PX;
+  FONT-SIZE: 10PX;
 }
 
 .github-button {
   display: inline-block;
-  background-color: #24292e;
   color: #ffffff;
-  padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
   font-family: Arial, sans-serif;

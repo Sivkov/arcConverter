@@ -28,7 +28,7 @@ const Watches= ()=> {
   return (
   <div id="watches">
     <ThemeSwitcher/>
-    <div class="d-none" >
+    <div className="d-none" >
         {time}      
     </div>
   </div>

@@ -30,7 +30,7 @@ function RightPanel({ setRadiusX, setRadiusY, setSegments, ell, arcs, deviation 
 				/>
 			</div> 
 			<div className='rightPanelItem'> 
-				<label htmlFor="segments">Segments</label>
+				<label htmlFor="segments">Segment</label>
 				<input
 					className=""
 					type="number"
