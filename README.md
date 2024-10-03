@@ -12,8 +12,6 @@
 
 ### Also zoom and drug picture.
 
-### This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-[Try it live](https://sivkov.online/arcconverter/)
+### [Try it live](https://sivkov.online/arcconverter/)
 
 ![Screenshot](https://github.com/Sivkov/arcConverter/blob/main/src/img/arcview.png?raw=true)
