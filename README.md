@@ -12,6 +12,6 @@
 
 ### Also zoom and drug picture.
 
-### [Try it live](https://sivkov.online/arcconverter/)
+### [Try it live](https://sivkov.github.io/arcConverter/)
 
 ![Screenshot](https://github.com/Sivkov/arcConverter/blob/main/src/img/arcview.png?raw=true)
